@@ -38,8 +38,14 @@
 
     <!--- ------------------------------------------------------------------------------------------ -->
 
-    <section id="mandalahof" class="overflow-scroll">
-        <img class="min-vw-100 w-100" src="mandalahof@2x.jpg">
+    <style>
+        #mandalahof {
+            background-image: url(mandalahof@2x.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+    </style>
+    <section id="mandalahof" class="min-vh-95">
     </section>
 
     <!--- ------------------------------------------------------------------------------------------ -->
@@ -89,7 +95,7 @@ IT Dienst&shy;leistungen, Ver&shy;waltung von Unter&shy;nehmens&shy;beteiligunge
     </section>
 
     <script type="text/javascript">
-        window.addEventListener('load', (event) => {
+        false && window.addEventListener('load', (event) => {
             const viewportEl = document.querySelector('html');
             const containerElement = document.querySelector('#mandalahof');
             const contentElement = document.querySelector('#mandalahof > img');
