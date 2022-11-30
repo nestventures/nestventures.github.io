@@ -17,19 +17,9 @@
           background-color: #95c1a7;
       }
 
-      .text-muted {
-          x-color: rgba(0,0,0,0.5) !important;
-          x-color: rgba(255,255,255,0.75) !important;
-      }
-
-      .vh-90 {
-          height: 90vh;
-      }
-
       .min-vh-95 {
           min-height: 95vh;
       }
-
   </style>
 </head>
 <body>
@@ -39,21 +29,27 @@
     <section class="d-flex flex-column justify-content-center min-vh-95">
         <div class="container lh-base text-white">
             <p class="display-1">Hi, we’re Nest; a nurturing home where young ideas thrive.</p>
+            <p class="mt-5 pt-5 opacity-75">Nest is a small private incubator and angel investor focusing on healthy, sustainable living.</p>
         </div>
     </section>
 
     <!--- ------------------------------------------------------------------------------------------ -->
 
-    <section class="overflow-scroll">
-        <img class="min-vw-100" src="https://krischanitz.at/data/media/abau_media/big/1410188204.jpg">
+    <section id="mandalahof" class="overflow-scroll">
+        <img class="min-vw-100 w-100" src="mandalahof@2x.jpg">
     </section>
 
     <!--- ------------------------------------------------------------------------------------------ -->
 
-    <section class="d-flex flex-column justify-content-center" style="min-height: 90vh;">
+    <section class="d-flex flex-column justify-content-center min-vh-95">
         <div class="container-fluid pt-5">
             <div class="container lh-base text-white">
-                <p class="display-1">Discover the nest big thing: planet-friendly home care. Bloomberry’s.</p>
+                <p class="display-1">Discover the nest big thing: planet-friendly home care.</p>
+                <div class="opacity-75">
+                    <p class="mt-5 pt-5">We’re home to Waschpapier ("Laundry Paper") - no plastic, no lugging, just a fresh scent.</p>
+                    <p>These plant-based, plastic-free, bio-degradable detergent sheets dissolve organically in water and are so small and light, a pack fits in your mailbox.</p>
+                    <p><a  class="text-white" href="https://waschpapier.at">Waschpapier.at</a> · <a  class="text-white" href="https://waschpapier.de">Waschpapier.de</a></p>
+                </div>
             </div>
         </div>
     </section>
@@ -63,8 +59,8 @@
             <div class="row h-card">
                 <div class="col-md-4 col-sm-12">
                     <p>
-                        <span class="p-namep-org">Nest Ventures GmbH iG</span><br/>
-                        <span class="p-street-address">Fleischmarkt 16</span><br/>
+                        <span class="p-namep-org">Nest Ventures GmbH</span><br/>
+                        <span class="p-street-address">Fleischmarkt 16/O</span><br/>
                         <span class="p-postal-code">1010</span> <span class="p-locality">Vienna</span><br/>
                         <span class="p-country-name">Austria</span>
                     </p>
@@ -72,22 +68,44 @@
     
                 <div class="col-md-4 col-sm-12">
                     <p>
-                        Reg. No. 00000000<br/>
-                        VAT 00000000<br/>
-                        IBAN AT98 8770 0000 0000 0000<br/>
-                        BIC 000000000000
+                        Geschäftsführer: Andreas Pizsa<br/>
+                        HG Wien, FN 575285h<br/>
+                        VAT UID ATU77895529<br/>
                     </p>
                 </div>
 
                 <div class="col">
                     <p>
-                        Handelsgericht Wien<br/>
-                        Handel mit Waren aller Art,<br>
-                        IT Diensleistungen, Verwaltung von Unternehmensbeteiligungen
+                        Mitglied der Wirtschaftskammer Wien<br>
+                        Handel mit Waren aller Art,
+IT Diensleistungen, Verwaltung von Unternehmensbeteiligungen
                     </p>
                 </div>
             </div>
         </div>
     </section>
+
+    <script type="text/javascript">
+        window.addEventListener('load', (event) => {
+            const viewportEl = document.querySelector('html');
+            const containerElement = document.querySelector('#mandalahof');
+            const contentElement = document.querySelector('#mandalahof > img');
+
+            const {height: viewportHeight} = viewportEl.getBoundingClientRect()
+            const {width: contentWidth, height: contentHeight} = contentElement.getBoundingClientRect()
+            const {width: containerWidth } = containerElement.getBoundingClientRect()
+
+            const totalVerticalScrollHeight = viewportHeight + contentHeight
+
+            window.addEventListener('scroll', event => {
+                const {top: contentTop} = contentElement.getBoundingClientRect()
+                const offset = (totalVerticalScrollHeight - contentTop) / totalVerticalScrollHeight
+                const scrollLeft = containerWidth * offset
+                containerElement.scrollLeft = scrollLeft
+                console.log({contentTop, totalVerticalScrollHeight, containerWidth, offset, scrollLeft, cscrollLeft: containerElement.scrollLeft})
+            })
+        })
+    </script>
+
 </body>
 </html>
